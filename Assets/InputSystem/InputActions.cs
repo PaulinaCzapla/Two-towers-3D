@@ -62,6 +62,24 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""43a966a4-882d-48e9-ad91-b2d36b951b95"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""2283ad6b-f385-44ae-9aa8-a60dc30134f4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +170,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f446f19f-df2a-4aee-b922-b0f8755c521c"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardAndMouse"",
+                    ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c5018bc-ee77-4d2f-9e5c-d2694d5cdd6d"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardAndMouse"",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -181,6 +221,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Gameplay_Shoot = m_Gameplay.FindAction("Shoot", throwIfNotFound: true);
         m_Gameplay_Aim = m_Gameplay.FindAction("Aim", throwIfNotFound: true);
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
+        m_Gameplay_MousePosition = m_Gameplay.FindAction("MousePosition", throwIfNotFound: true);
+        m_Gameplay_Sprint = m_Gameplay.FindAction("Sprint", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -244,6 +286,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Shoot;
     private readonly InputAction m_Gameplay_Aim;
     private readonly InputAction m_Gameplay_Jump;
+    private readonly InputAction m_Gameplay_MousePosition;
+    private readonly InputAction m_Gameplay_Sprint;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -252,6 +296,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Gameplay_Shoot;
         public InputAction @Aim => m_Wrapper.m_Gameplay_Aim;
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
+        public InputAction @MousePosition => m_Wrapper.m_Gameplay_MousePosition;
+        public InputAction @Sprint => m_Wrapper.m_Gameplay_Sprint;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -273,6 +319,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @MousePosition.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMousePosition;
+                @MousePosition.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMousePosition;
+                @MousePosition.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMousePosition;
+                @Sprint.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSprint;
+                @Sprint.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSprint;
+                @Sprint.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSprint;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -289,6 +341,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @MousePosition.started += instance.OnMousePosition;
+                @MousePosition.performed += instance.OnMousePosition;
+                @MousePosition.canceled += instance.OnMousePosition;
+                @Sprint.started += instance.OnSprint;
+                @Sprint.performed += instance.OnSprint;
+                @Sprint.canceled += instance.OnSprint;
             }
         }
     }
@@ -308,5 +366,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnMousePosition(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
     }
 }

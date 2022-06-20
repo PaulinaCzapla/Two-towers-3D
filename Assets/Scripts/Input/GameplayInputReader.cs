@@ -23,6 +23,24 @@ namespace Input
         public event UnityAction JumpCanceledEvent = delegate { };
         public bool JumpPressed { get; set; }
         
+        public event UnityAction<Vector2> MousePositionChangedEvent = delegate { };
+        public event UnityAction MousePositionChangedCanceledEvent = delegate { };
+        public bool SprintPressed { get; set; }
+
+        private InputActions _inputActions;
+        private InputActions.IGameplayActions _gameplayActionsImplementation;
+        
+        
+        public void SetInput()
+        {
+            if (_inputActions == null )
+            {
+                _inputActions = new InputActions();
+                _inputActions.Gameplay.SetCallbacks(this);
+                _inputActions.Gameplay.Enable();
+            }
+        }
+        
         public void OnMovement(InputAction.CallbackContext context)
         {
             if (context.performed)
@@ -78,5 +96,32 @@ namespace Input
                 JumpPressed = false;
             }
         }
+
+        public void OnMousePosition(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                MousePositionChangedEvent.Invoke(context.ReadValue<Vector2>());
+            }
+
+            if (context.canceled)
+            {
+                MousePositionChangedCanceledEvent.Invoke();
+            }
+        }
+
+        public void OnSprint(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                SprintPressed = true;
+            }
+
+            if (context.canceled)
+            {
+                SprintPressed = false;
+            }
+        }
+        
     }
 }
