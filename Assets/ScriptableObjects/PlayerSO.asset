@@ -18,7 +18,7 @@ MonoBehaviour:
   downwardMultiplier: -1.57
   walkMaxSpeed: 6
   runMaxSpeed: 10
-  mouseSensitivity: 100
+  mouseSensitivity: 10
   maxAngle: 70
   minAngle: -90
   maxZoom: 40
