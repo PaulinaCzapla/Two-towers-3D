@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773860761563487142}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -8.54369, y: 3.5111833, z: 11.336793}
+  m_LocalPosition: {x: -8.54369, y: 3.27, z: 11.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -201,7 +201,8 @@ GameObject:
   - component: {fileID: 6783664882941471994}
   - component: {fileID: 6783664882941471995}
   - component: {fileID: 6783664882941471996}
-  - component: {fileID: 6783664882941471997}
+  - component: {fileID: 759488848}
+  - component: {fileID: 759488849}
   m_Layer: 0
   m_Name: Elevator
   m_TagString: Untagged
@@ -216,9 +217,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6783664882941471998}
-  m_LocalRotation: {x: 0.000000059604638, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 22.6, y: 0.089999914, z: -8.8}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6783664883899253888}
@@ -5299,7 +5300,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2729
+  m_VersionIndex: 2680
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5381,7 +5382,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6783664882941471998}
   m_Mesh: {fileID: 0}
---- !u!64 &6783664882941471997
+--- !u!64 &759488848
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5395,6 +5396,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &759488849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6783664882941471998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aae995c1171418ab8f891072481a312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  checkPosCorrection: {x: 0, y: 1.14, z: 0}
+  halfExtends: {x: 2.97, y: 1.37, z: 4.21}
+  floorYPositions:
+  - 0.1
+  - 8.89
+  - 17.7
+  - 26.4
 --- !u!1 &8815481829748135399
 GameObject:
   m_ObjectHideFlags: 0
@@ -5445,11 +5468,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 281004289803453819, guid: 1bebc166e559a0844b5a872680f11a63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7869996
+      value: 2.52
       objectReference: {fileID: 0}
     - target: {fileID: 281004289803453819, guid: 1bebc166e559a0844b5a872680f11a63, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.6700003
+      value: -2.873
       objectReference: {fileID: 0}
     - target: {fileID: 281004289803453819, guid: 1bebc166e559a0844b5a872680f11a63, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5483,6 +5506,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ElevatorDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 4308483394219506301, guid: 1bebc166e559a0844b5a872680f11a63, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bebc166e559a0844b5a872680f11a63, type: 3}
 --- !u!4 &1554425198215398498 stripped
@@ -5497,6 +5524,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6783664882941471992}
     m_Modifications:
+    - target: {fileID: 2090564638504134614, guid: ee21b007995754c429149bd7cbf19193, type: 3}
+      propertyPath: floorNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090564638610408646, guid: ee21b007995754c429149bd7cbf19193, type: 3}
+      propertyPath: floorNum
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090564638712634418, guid: ee21b007995754c429149bd7cbf19193, type: 3}
+      propertyPath: floorNum
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5244565773534501820, guid: ee21b007995754c429149bd7cbf19193, type: 3}
+      propertyPath: floorNum
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8341410331340447854, guid: ee21b007995754c429149bd7cbf19193, type: 3}
       propertyPath: m_Name
       value: ElevatorControlPanel
@@ -5511,11 +5554,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8341410331340447855, guid: ee21b007995754c429149bd7cbf19193, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2599998
+      value: 1.99
       objectReference: {fileID: 0}
     - target: {fileID: 8341410331340447855, guid: ee21b007995754c429149bd7cbf19193, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.7699996
+      value: -2.054
       objectReference: {fileID: 0}
     - target: {fileID: 8341410331340447855, guid: ee21b007995754c429149bd7cbf19193, type: 3}
       propertyPath: m_LocalRotation.w

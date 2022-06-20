@@ -17,7 +17,7 @@ namespace Player
             movement.UnsubscribeFromAllEvents();
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             movement.HandleMoveCharacter();
             jump.HandleJump();

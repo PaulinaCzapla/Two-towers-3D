@@ -25,8 +25,6 @@ namespace Player.Movement
             _velocity.x = controller.velocity.x;
             _velocity.z = controller.velocity.z;
 
-            Debug.Log(groundCheck.CheckIfOnGround());
-
             if (inputReader.JumpPressed && groundCheck.CheckIfOnGround())
             {
                 CalculateJumpHeight();
