@@ -23,7 +23,7 @@ namespace Camera
 
         public void LerpFieldOfView(float targetValue, float t)
         {
-            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetValue, t * Time.fixedDeltaTime);
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetValue, t * Time.deltaTime);
                 
             if (Mathf.Abs(cam.fieldOfView - targetValue) < 0.1)
                 cam.fieldOfView = targetValue;

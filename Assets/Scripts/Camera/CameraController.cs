@@ -24,7 +24,7 @@ namespace Camera
             cameraRotation.UnsubscribeFromAllEvents();
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             cameraRotation.HandleCameraRotation();
             cameraZoom.HandleCameraZoom();

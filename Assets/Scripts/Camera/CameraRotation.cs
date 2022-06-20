@@ -33,9 +33,9 @@ namespace Camera
 
         public void HandleCameraRotation()
         {
-            _xRotation -= _mouseAxis.y * Time.fixedDeltaTime;
+            _xRotation -= _mouseAxis.y * Time.deltaTime;
             _xRotation = Mathf.Clamp(_xRotation, playerParams.minAngle, playerParams.maxAngle);
-            playerTransform.Rotate(Vector3.up * _mouseAxis.x * Time.fixedDeltaTime);
+            playerTransform.Rotate(Vector3.up * _mouseAxis.x * Time.deltaTime);
             camTransform.localRotation = Quaternion.Euler(_xRotation,0f,0f);
         }
         
