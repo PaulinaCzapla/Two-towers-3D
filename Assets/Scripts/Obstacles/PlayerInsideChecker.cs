@@ -26,7 +26,7 @@ namespace Obstacles
 
         public void OnDrawGizmos()
         {
-            Gizmos.DrawWireCube(checkPosCorrection+ objTransform.position, halfExtends);
+            Gizmos.DrawWireCube(checkPosCorrection+ objTransform.position, halfExtends*2);
         }
 
     }

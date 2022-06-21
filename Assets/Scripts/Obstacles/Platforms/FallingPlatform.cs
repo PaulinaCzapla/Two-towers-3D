@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Input;
 using Timers;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace Obstacles.Platforms
         private Cooldown _shakeCooldown;
         private Cooldown _restoreCooldown;
         private Vector2 _initialPosition;
+        private bool _wasTriggered;
 
         private void Awake()
         {
@@ -29,6 +31,9 @@ namespace Obstacles.Platforms
 
         private void FixedUpdate()
         {
+            if (checker.CheckIfPlayerInside())
+                OnPlayerOnPlatform();
+                
             if (_shakeCooldown != null && _shakeCooldown.CooldownEnded)
             {
                 //todo: camera shake
@@ -43,27 +48,25 @@ namespace Obstacles.Platforms
             if (_restoreCooldown != null && _restoreCooldown.CooldownEnded)
             {
                 _restoreCooldown = null;
-
                 rb.isKinematic = true;
                 rb.velocity = Vector2.zero;
                 platformCollider.isTrigger = false;
                 mesh.SetActive(true);
                 transform.position = _initialPosition;
+                _wasTriggered = false;
             }
         }
 
-        private void OnCollisionEnter(Collision other)
+        private void OnPlayerOnPlatform()
         {
-            Debug.Log("collision");
-            if (other.gameObject.layer.ToString().Equals("Player"))
+            if (!_wasTriggered)
             {
-                if (other.contacts[0].normal.y >= -1 && other.contacts[0].normal.y < -0.5f)
-                {
-                    _fallCooldown = new Cooldown(timeBeforeFall);
-                    _fallCooldown.StartCooldown();
-                    _shakeCooldown = new Cooldown(timeBeforeFall / 2);
-                    _shakeCooldown.StartCooldown();
-                }
+                Debug.Log("fall");
+                _fallCooldown = new Cooldown(timeBeforeFall);
+                _fallCooldown.StartCooldown();
+                _shakeCooldown = new Cooldown(timeBeforeFall / 2);
+                _shakeCooldown.StartCooldown();
+                _wasTriggered = true;
             }
         }
 
@@ -71,12 +74,18 @@ namespace Obstacles.Platforms
         {
             rb.isKinematic = false;
             platformCollider.isTrigger = true;
-            yield return new WaitForSeconds(0.25f);
+            rb.velocity = new Vector3(0, -5, 0);
+            yield return new WaitForSeconds(0.2f);
 
             _shakeCooldown = null;
             mesh.SetActive(false);
             _restoreCooldown = new Cooldown(timeBeforeRespawn);
             _restoreCooldown.StartCooldown();
+        }
+
+        private void OnDrawGizmos()
+        {
+            checker.OnDrawGizmos();
         }
     }
 }

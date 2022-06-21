@@ -8,6 +8,7 @@ namespace Player
 {
     public class InteractionDative : MonoBehaviour
     {
+        public bool IsCurrentlyTargetingClickable => _currentlyTargetedClickable != null;
         [SerializeField] private GameplayInputReader input;
 
         private IClickable _currentlyTargetedClickable = null;
@@ -15,12 +16,12 @@ namespace Player
 
         private void OnEnable()
         {
-            input.ShootEvent += OnClicked;
+            input.AimEvent += OnClicked;
         }
 
         private void OnDisable()
         {
-            input.ShootEvent -= OnClicked;
+            input.AimEvent -= OnClicked;
         }
         
         private void Update()

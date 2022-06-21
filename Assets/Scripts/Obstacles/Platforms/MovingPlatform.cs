@@ -18,6 +18,7 @@ namespace Obstacles.Platforms
         private int _index = 1;
         private GameObject _player;
         private bool _increment = true;
+        private bool _playerWasOn;
 
         private void Start()
         {
@@ -57,11 +58,17 @@ namespace Obstacles.Platforms
 
             if (_player == null && player != null)
                 _player = player;
-            
-            if(_player && player == null)
+
+            if (_player && player == null && _playerWasOn)
+            {
                 _player.transform.SetParent(null);
+                _playerWasOn = false;
+            }
             else if (player && player != null)
+            {
                 _player.transform.SetParent(transform);
+                _playerWasOn = true;
+            }
         }
 
         private void MovePlatform()

@@ -15,6 +15,11 @@ namespace Player
         public float walkMaxSpeed;
         public float runMaxSpeed;
 
+        [Header("Shooting ability")] 
+        public float shootCooldown;
+        public float range;
+        public float spreadMaxValue;
+
         [Header("Camera")] 
         public float mouseSensitivity;
         public float maxAngle;

@@ -5408,11 +5408,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aae995c1171418ab8f891072481a312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  checkPosCorrection: {x: 0, y: 1.14, z: 0}
-  halfExtends: {x: 2.97, y: 1.37, z: 4.21}
+  checkPosCorrection: {x: -0.17, y: 1.57, z: 0}
+  halfExtends: {x: 3.21, y: 2.98, z: 4.22}
+  checker:
+    playerLayer:
+      serializedVersion: 2
+      m_Bits: 128
+    checkPosCorrection: {x: -0.14, y: 1.64, z: 0}
+    halfExtends: {x: 1.6, y: 1.5, z: 2.1}
+    objTransform: {fileID: 6783664882941471992}
   floorYPositions:
   - 0.1
   - 8.89

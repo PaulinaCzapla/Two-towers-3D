@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Obstacles;
 using UnityEngine;
 
 namespace Elevator
@@ -9,9 +10,9 @@ namespace Elevator
     public class Elevator  : MonoBehaviour
     {
         [Header("Player detection")]
-        [SerializeField] private LayerMask playerLayer;
         [SerializeField] private Vector3 checkPosCorrection = Vector3.zero;
         [SerializeField] private Vector3 halfExtends;
+        [SerializeField] private PlayerInsideChecker checker;
 
         [Header("Floor positions")]
         [SerializeField] private List<float> floorYPositions;
@@ -31,7 +32,9 @@ namespace Elevator
 
         private void OnElevatorButtonClicked(int floor)
         {
-            if (CheckIfPlayerInside() || floor ==0)
+            _player = checker.CheckIfPlayerInside();
+            
+            if ( _player|| floor ==0)
             {
                 if (floor != _currentFloor)
                 {
@@ -54,24 +57,9 @@ namespace Elevator
             _player.transform.SetParent(null);
         }
 
-        private bool CheckIfPlayerInside()
-        {
-            Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, halfExtends,
-                Quaternion.identity, playerLayer);
-
-            if (hitColliders.Length > 0)
-            {
-                _player = hitColliders[0].gameObject;
-                return true;
-            }
-
-            _player = null;
-            return false;
-        }
-
         private void OnDrawGizmos()
         {
-            Gizmos.DrawWireCube(checkPosCorrection+ transform.position, halfExtends);
+           checker.OnDrawGizmos();
         }
     }
 }

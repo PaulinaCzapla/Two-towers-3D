@@ -18,6 +18,9 @@ MonoBehaviour:
   downwardMultiplier: -1.57
   walkMaxSpeed: 6
   runMaxSpeed: 10
+  shootCooldown: 0.5
+  range: 60
+  spreadMaxValue: 0.4
   mouseSensitivity: 100
   maxAngle: 70
   minAngle: -90
