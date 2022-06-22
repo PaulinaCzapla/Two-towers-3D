@@ -1,12 +1,11 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using Obstacles.Platforms;
 using Timers;
 using UnityEngine;
 
-namespace Obstacles
+namespace Obstacles.Traps
 {
     [Serializable]
     public class YoyoMovementBetweenPoints
@@ -28,8 +27,6 @@ namespace Obstacles
             _cooldown = new Cooldown(movementStartDelay);
             _cooldown.StartCooldown();
             
-            //Move();
-
             if (movements.Count == 2)
                 _increment = false;
         }
@@ -74,6 +71,5 @@ namespace Obstacles
             movingObjectTransform.DOMove(movements[_index].TargetPosition,
                 movements[_index].timeToAchieveTargetPos).SetEase(Ease.InOutSine);
         }
-        
     }
 }

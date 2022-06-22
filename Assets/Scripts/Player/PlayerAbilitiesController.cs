@@ -7,6 +7,7 @@ namespace Player
     {
         [SerializeField] private PlayerMovement movement = new PlayerMovement();
         [SerializeField] private PlayerJump jump = new PlayerJump();
+        
         private void OnEnable()
         {
             movement.SubscribeToEvents();

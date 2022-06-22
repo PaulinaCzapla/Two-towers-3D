@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Player;
+using UnityEngine;
 
 namespace Obstacles
 {
@@ -6,7 +7,6 @@ namespace Obstacles
     {
         private void OnTriggerEnter(Collider other)
         {
-            
             if (other.TryGetComponent(out IDieable dieable))
             {
                 dieable.Die();

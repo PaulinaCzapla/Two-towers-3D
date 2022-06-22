@@ -2,7 +2,7 @@
 
 namespace Elevator
 {
-    public class StaticElevatorEvents
+    public static class StaticElevatorEvents
     {
         private static readonly UnityEvent<int> _elevatorButtonClicked = new UnityEvent<int>();
         private static readonly UnityEvent<int> _elevatorButtonTargeted= new UnityEvent<int>();

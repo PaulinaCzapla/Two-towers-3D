@@ -1,4 +1,4 @@
-﻿namespace Obstacles
+﻿namespace Player
 {
     public interface IDieable
     {

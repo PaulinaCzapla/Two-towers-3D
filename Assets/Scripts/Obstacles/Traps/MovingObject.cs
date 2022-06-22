@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Obstacles
+namespace Obstacles.Traps
 {
     public class MovingObject : MonoBehaviour
     {

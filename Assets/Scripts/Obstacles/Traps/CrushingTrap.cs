@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Obstacles
+namespace Obstacles.Traps
 {
     public class CrushingTrap : MonoBehaviour
     {

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Obstacles.Traps;
 using UnityEngine;
 
 namespace Obstacles.Platforms

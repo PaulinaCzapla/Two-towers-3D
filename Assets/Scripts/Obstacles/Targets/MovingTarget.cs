@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Obstacles.Traps;
+using UnityEngine;
 
 namespace Obstacles.Targets
 {
