@@ -4,13 +4,11 @@ using UnityEngine;
 
 namespace Obstacles.Targets
 {
-    public class ShootingTarget : MonoBehaviour, IHitable
+    public class Target : MonoBehaviour, IHitable
     {
-        
-
         public void Hit()
         {
-            
+            gameObject.SetActive(false);
         }
     }
 }

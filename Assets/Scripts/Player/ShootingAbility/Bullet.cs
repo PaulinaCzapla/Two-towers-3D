@@ -41,10 +41,8 @@ namespace Player.ShootingAbility
         private IEnumerator BulletLifespan()
         {
             _isAfterCollision = true;
-            Debug.Log("collided");
             yield return new WaitForSeconds(bulletLifespan);
             gameObject.SetActive(false);
-            Debug.Log("aa");
         }
         
         public void Shoot(Vector3 direction)

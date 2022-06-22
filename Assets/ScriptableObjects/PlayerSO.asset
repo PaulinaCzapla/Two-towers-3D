@@ -21,7 +21,7 @@ MonoBehaviour:
   shootCooldown: 0.5
   range: 60
   spreadMaxValue: 0.4
-  mouseSensitivity: 100
+  mouseSensitivity: 50
   maxAngle: 70
   minAngle: -90
   maxZoom: 40

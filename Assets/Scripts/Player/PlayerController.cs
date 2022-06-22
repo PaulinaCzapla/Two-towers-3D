@@ -1,26 +1,13 @@
-﻿using Player.Movement;
+﻿using Obstacles;
 using UnityEngine;
 
 namespace Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IDieable
     {
-        [SerializeField] private PlayerMovement movement = new PlayerMovement();
-        [SerializeField] private PlayerJump jump = new PlayerJump();
-        private void OnEnable()
+        public void Die()
         {
-            movement.SubscribeToEvents();
-        }
-
-        private void OnDisable()
-        {
-            movement.UnsubscribeFromAllEvents();
-        }
-
-        private void Update()
-        {
-            movement.HandleMoveCharacter();
-            jump.HandleJump();
+            Debug.Log("dead");
         }
     }
 }

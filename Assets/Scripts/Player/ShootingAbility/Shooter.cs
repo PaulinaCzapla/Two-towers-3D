@@ -36,7 +36,6 @@ namespace Player.ShootingAbility
                     
                     SetShotDirection();
                     SpawnShotable();
-                    
                 }
             }
             else
@@ -98,6 +97,7 @@ namespace Player.ShootingAbility
 
             bullet.transform.position = firePoint.position;
             bullet.SetActive(true);
+            
             if (bullet.TryGetComponent(out IShotable bulletInstantiated))
             {
                 bulletInstantiated.Shoot(_bulletDir);

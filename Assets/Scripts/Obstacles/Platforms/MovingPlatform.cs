@@ -8,10 +8,8 @@ namespace Obstacles.Platforms
 {
     public class MovingPlatform : MonoBehaviour
     {
-        [Header("Platform params")]
-        [SerializeField] private List<PlatformMovement> platformMovements;
-        [SerializeField] private Transform platformTransform;
-        [SerializeField] private float platformMovementsInterval = 1;
+        [Header("Platform params")] 
+        [SerializeField] private YoyoMovementBetweenPoints movement;
         [SerializeField] private PlayerInsideChecker checker;
         
         private Sequence _sequence;
@@ -20,36 +18,15 @@ namespace Obstacles.Platforms
         private bool _increment = true;
         private bool _playerWasOn;
 
-        private void Start()
+        private void Awake()
         {
-            MovePlatform();
+            movement.StartMovement();
         }
 
         private void Update()
         {
             CheckIfPlayerOn();
-
-            if (Vector3.Distance(platformMovements[_index].TargetPosition,
-                transform.position) < 0.2)
-            {
-                StartCoroutine(MoveCompleted());
-            }
-        }
-
-       private  IEnumerator  MoveCompleted()
-       {
-           if (_increment)
-               _index++;
-           else
-               _index--;
-
-           if (_index == platformMovements.Count - 1)
-               _increment = false;
-           else if (_index == 0)
-               _increment = true;
-           
-           yield return new WaitForSeconds(platformMovements[_index].timeToAchieveTargetPos);
-           MovePlatform();
+            movement.UpdateMovement();
         }
 
         private void CheckIfPlayerOn()
@@ -69,12 +46,6 @@ namespace Obstacles.Platforms
                 _player.transform.SetParent(transform);
                 _playerWasOn = true;
             }
-        }
-
-        private void MovePlatform()
-        {
-            platformTransform.DOMove(platformMovements[_index].TargetPosition,
-                platformMovements[_index].timeToAchieveTargetPos).SetEase(Ease.InOutSine);
         }
 
         private void OnDrawGizmos()

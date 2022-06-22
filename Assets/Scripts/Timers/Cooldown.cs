@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Timers
 {
@@ -16,6 +17,8 @@ namespace Timers
 
         public void StartCooldown()
         {
+            TimeSpan t = (DateTime.UtcNow - new DateTime(1970, 1, 1));
+            Console.WriteLine((int)t.TotalSeconds);
             _nextFireTime = Time.time + _cooldownTime;
         }
 
