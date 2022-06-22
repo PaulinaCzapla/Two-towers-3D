@@ -8,6 +8,7 @@ namespace Obstacles.Targets
     {
         public void Hit()
         {
+            ShootingStaticEvents.InvokeTargetHit();
             gameObject.SetActive(false);
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Obstacles.Targets;
+using Timers;
 using UnityEngine;
 
 namespace Player.ShootingAbility
@@ -8,6 +9,8 @@ namespace Player.ShootingAbility
     [RequireComponent(typeof(Rigidbody))]
     public class Bullet : MonoBehaviour, IShotable
     {
+        private const float MaxLifespan = 10f;
+        
         [SerializeField] private float bulletForce;
         [Tooltip("Bullet lifespan after collision")]
         [SerializeField] private float bulletLifespan;
@@ -18,6 +21,13 @@ namespace Player.ShootingAbility
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
+            StartCoroutine(BulletLifespan(MaxLifespan));
+        }
+
+        private void OnDisable()
+        {
+            StopAllCoroutines();
+            _isAfterCollision = false;
         }
 
         private void OnCollisionEnter(Collision other)
@@ -25,23 +35,18 @@ namespace Player.ShootingAbility
             OnHitObject(other.collider);
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            OnHitObject(other);
-        }
-
         private void OnHitObject(Collider col)
         {
             if (!_isAfterCollision)
-                StartCoroutine(BulletLifespan());
+                StartCoroutine(BulletLifespan(bulletLifespan));
             if (col.gameObject.TryGetComponent<IHitable>(out IHitable hitable))
                 hitable.Hit();
         }
 
-        private IEnumerator BulletLifespan()
+        private IEnumerator BulletLifespan(float time)
         {
+            yield return new WaitForSeconds(time);
             _isAfterCollision = true;
-            yield return new WaitForSeconds(bulletLifespan);
             gameObject.SetActive(false);
         }
         

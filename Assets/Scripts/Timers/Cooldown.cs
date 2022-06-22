@@ -6,7 +6,7 @@ namespace Timers
     public class Cooldown
     {
         public bool CooldownEnded => IsCooldownEnded();
-
+        
         private readonly float _cooldownTime;
         private float _nextFireTime;
 

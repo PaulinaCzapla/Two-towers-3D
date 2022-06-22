@@ -4,14 +4,14 @@ namespace Obstacles.Targets
 {
     public static class ShootingStaticEvents
     {
-        private static readonly UnityEvent<int> _onTargetHit = new UnityEvent<int>();
+        private static readonly UnityEvent _onTargetHit = new UnityEvent();
         private static readonly UnityEvent<int> _onShootingRangeEntered= new UnityEvent<int>();
 
-        public static void SubscribeToTargetHit(UnityAction<int> subscriber) =>
+        public static void SubscribeToTargetHit(UnityAction subscriber) =>
             _onTargetHit.AddListener(subscriber);
-        public static void UnsubscribeFromTargetHit(UnityAction<int> subscriber) =>
+        public static void UnsubscribeFromTargetHit(UnityAction subscriber) =>
             _onTargetHit.RemoveListener(subscriber);
-        public static void InvokeTargetHit(int floor) => _onTargetHit?.Invoke(floor);
+        public static void InvokeTargetHit() => _onTargetHit?.Invoke();
 
 
         public static void SubscribeToShootingRangeEntered(UnityAction<int> subscriber) =>

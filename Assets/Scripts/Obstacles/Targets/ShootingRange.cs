@@ -12,7 +12,8 @@ namespace Obstacles.Targets
         [SerializeField] private Door door;
         [SerializeField] private PlayerDetector playerDetector;
 
-        private int _currentRound;
+        private int _currentRound = 0;
+        private int _shotTargets = 0;
 
         private void OnEnable()
         {
@@ -26,16 +27,16 @@ namespace Obstacles.Targets
             ShootingStaticEvents.UnsubscribeFromTargetHit(TargetHit);
         }
 
-        private void TargetHit(int sumOfHit)
+        private void TargetHit()
         {
-            foreach (var target in rounds[_currentRound].shootingTargets)
-            {
-                if (target.gameObject.activeSelf)
-                    return;
-            }
+            _shotTargets++;
 
-            _currentRound++;
-            StartRound(_currentRound);
+            if (_shotTargets == rounds[_currentRound].shootingTargets.Count)
+            {
+                _shotTargets = 0;
+                _currentRound++;
+                StartRound(_currentRound);
+            }
         }
 
         private void OnPlayerEntered()
@@ -43,14 +44,14 @@ namespace Obstacles.Targets
             door.CloseDoor();
             ShootingStaticEvents.SubscribeToTargetHit(TargetHit);
             playerDetector.OnPlayerEnterAction -= OnPlayerEntered;
-            StartRound(0);
+            StartRound(_currentRound);
         }
 
         private void StartRound(int round)
         {
             if (round < rounds.Count)
             {
-                foreach (var target in rounds[_currentRound].shootingTargets)
+                foreach (var target in rounds[round].shootingTargets)
                 {
                     target.gameObject.SetActive(true);
                 }

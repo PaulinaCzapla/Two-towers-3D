@@ -42,14 +42,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6820787157784577049}
-  - component: {fileID: 3612286948015266162}
   m_Layer: 0
   m_Name: MovingTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6820787157784577049
 Transform:
   m_ObjectHideFlags: 0
@@ -67,28 +66,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3612286948015266162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4198645787698405063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7661637e46754e86a160e5cc388ae77f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement:
-    movements:
-    - timeToAchieveTargetPos: 2
-      interval: 0.5
-      targetTransform: {fileID: 3351149386539477683}
-    - timeToAchieveTargetPos: 2
-      interval: 0.5
-      targetTransform: {fileID: 8247697609326489811}
-    movingObjectTransform: {fileID: 1096237092213537075}
-    movementStartDelay: 0
 --- !u!1 &7146427659067577177
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +90,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7146427659067577177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5.97}
+  m_LocalPosition: {x: 0, y: 0, z: -6.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -212,6 +189,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73df4e680b03eb94a9f278f835e4f06b, type: 3}
+--- !u!1 &1096237092213537036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4932288344659268123, guid: 73df4e680b03eb94a9f278f835e4f06b, type: 3}
+  m_PrefabInstance: {fileID: 5423917034419890967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1129871992008264119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096237092213537036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7661637e46754e86a160e5cc388ae77f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement:
+    movements:
+    - timeToAchieveTargetPos: 2
+      interval: 0.5
+      targetTransform: {fileID: 3351149386539477683}
+    - timeToAchieveTargetPos: 2
+      interval: 0.5
+      targetTransform: {fileID: 8247697609326489811}
+    movingObjectTransform: {fileID: 1096237092213537075}
+    movementStartDelay: 0
 --- !u!4 &1096237092213537075 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4932288344659268132, guid: 73df4e680b03eb94a9f278f835e4f06b, type: 3}
