@@ -13,6 +13,7 @@ namespace Player
         
         [Header("Run")]
         public float walkMaxSpeed;
+        public float maxSpeedInAir;
         public float runMaxSpeed;
 
         [Header("Shooting ability")] 

@@ -6770,6 +6770,17 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
   m_PVRTiledBaking: 0
+--- !u!114 &549576842 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8123723788607992048, guid: ce7b00e9aa6fa13438e32f4be6eb5f96, type: 3}
+  m_PrefabInstance: {fileID: 8123723788613111579}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3cff745f0cb462eb606ad81049fe844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &552801295
 GameObject:
   m_ObjectHideFlags: 0
@@ -12123,6 +12134,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8123723788607992049, guid: ce7b00e9aa6fa13438e32f4be6eb5f96, type: 3}
+      propertyPath: movement.groundCheck
+      value: 
+      objectReference: {fileID: 549576842}
     - target: {fileID: 8123723788607992050, guid: ce7b00e9aa6fa13438e32f4be6eb5f96, type: 3}
       propertyPath: m_StepOffset
       value: 0.1

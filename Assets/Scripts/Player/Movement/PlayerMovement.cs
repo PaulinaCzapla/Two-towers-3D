@@ -1,5 +1,6 @@
 using System;
 using Input;
+using Player.Movement.Checks;
 using UnityEngine;
 
 namespace Player.Movement
@@ -14,6 +15,7 @@ namespace Player.Movement
         [Header("Components")]
         [SerializeField] private CharacterController controller;
         [SerializeField] private Transform playerTransform;
+        [SerializeField] private GroundCheck groundCheck;
     
         private Vector2 _movementDirection = Vector3.zero;
         public void SubscribeToEvents()
@@ -37,8 +39,14 @@ namespace Player.Movement
         {
             Vector3 movement = playerTransform.right * _movementDirection.x +
                                playerTransform.forward * _movementDirection.y;
-            controller.Move(movement * Time.deltaTime * 
-                            (inputReader.SprintPressed ? playerParams.runMaxSpeed : playerParams.walkMaxSpeed));
+            
+            if (!groundCheck.CheckIfOnGround() || inputReader.JumpPressed)
+                movement = movement * Time.deltaTime * playerParams.maxSpeedInAir;
+            else
+                movement = movement * Time.deltaTime *
+                           (inputReader.SprintPressed ? playerParams.runMaxSpeed : playerParams.walkMaxSpeed);
+
+            controller.Move(movement);
         }
     }
 }
