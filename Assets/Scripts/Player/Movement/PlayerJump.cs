@@ -1,6 +1,7 @@
 ﻿using System;
 using Input;
 using Player.Movement.Checks;
+using UI;
 using UnityEngine;
 
 namespace Player.Movement
@@ -30,11 +31,11 @@ namespace Player.Movement
                 CalculateJumpHeight();
             }
 
-            if (!groundCheck.CheckIfOnGround() && _velocity.y < 1)
+            if (!groundCheck.CheckIfOnGround() && _velocity.y < 3)
             {
                 _velocity.y = Mathf.Clamp(
-                    _velocity.y - MathF.Abs(Gravity * Time.deltaTime * (playerParams.downwardMultiplier - 1)),
-                    -1 * playerParams.maxDownwardSpeed, 100f);
+                    _velocity.y - Mathf.Abs(Gravity * Time.deltaTime * (playerParams.downwardMultiplier - 1)),
+                    -1 * playerParams.maxDownwardSpeed, 1f);
             }
             else
                 _velocity.y += Gravity * Time.deltaTime;
@@ -45,6 +46,7 @@ namespace Player.Movement
 
         private void CalculateJumpHeight()
         {
+            UIStaticEvents.InvokePlayerJumped();
             _velocity.y = Mathf.Sqrt(-2f * Gravity * playerParams.jumpMaxHeight);
         }
     }

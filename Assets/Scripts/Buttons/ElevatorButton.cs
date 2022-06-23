@@ -14,7 +14,7 @@ namespace Buttons
         [SerializeField] private Material clickedMaterial;
         [SerializeField] private MeshRenderer meshRenderer;
 
-        private const float ButtonClickMove = 0.25f;
+        private const float ButtonClickMove = 0.2f;
         private void OnEnable()
         {
             StaticElevatorEvents.SubscribeToElevatorButtonClicked(OnElevatorButtonClicked);

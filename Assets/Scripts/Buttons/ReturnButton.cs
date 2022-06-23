@@ -16,7 +16,7 @@ namespace Buttons
 
         private string _guid;
         
-        private const float ButtonClickMove = 0.25f;
+        private const float ButtonClickMove = 0.2f;
         private readonly Vector3 _pos = new Vector3(10f, 2f, -3f);
 
         private void Awake()

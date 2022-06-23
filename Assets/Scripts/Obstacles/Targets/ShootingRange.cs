@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Buttons;
 using Levels;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,7 +12,8 @@ namespace Obstacles.Targets
         [SerializeField] private List<ShootingRound> rounds;
         [SerializeField] private Door door;
         [SerializeField] private PlayerDetector playerDetector;
-
+        [SerializeField] private ReturnButton button;
+        
         private int _currentRound = 0;
         private int _shotTargets = 0;
 
@@ -55,6 +57,12 @@ namespace Obstacles.Targets
                 {
                     target.gameObject.SetActive(true);
                 }
+            }
+            else
+            {
+                button.gameObject.SetActive(true);
+                _currentRound = 0;
+                _shotTargets = 0;
             }
         }
     }

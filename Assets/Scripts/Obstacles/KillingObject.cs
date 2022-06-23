@@ -1,4 +1,5 @@
 ﻿using Player;
+using Player.Respawn;
 using UnityEngine;
 
 namespace Obstacles

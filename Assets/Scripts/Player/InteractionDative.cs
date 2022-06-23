@@ -48,6 +48,8 @@ namespace Player
             if (Physics.Raycast(cameraCenter, UnityEngine.Camera.main.gameObject.transform.forward, out hit,
                 Mathf.Infinity))
             {
+                Debug.Log(hit.collider.gameObject.name);
+                
                 if (hit.transform.gameObject.TryGetComponent<ITargetable>(out var targetable))
                 {
                     _lastTargetable = targetable;

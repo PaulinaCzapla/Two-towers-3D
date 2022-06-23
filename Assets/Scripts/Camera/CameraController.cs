@@ -28,7 +28,7 @@ namespace Camera
         private void Update()
         {
             cameraRotation.HandleCameraRotation();
-            
+
             if (!interactionDative.IsCurrentlyTargetingClickable)
                 cameraZoom.HandleCameraZoom();
         }

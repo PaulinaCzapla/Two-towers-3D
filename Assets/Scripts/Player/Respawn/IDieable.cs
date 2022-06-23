@@ -1,4 +1,4 @@
-﻿namespace Player
+﻿namespace Player.Respawn
 {
     public interface IDieable
     {

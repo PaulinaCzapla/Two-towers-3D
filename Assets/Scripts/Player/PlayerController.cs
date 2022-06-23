@@ -1,4 +1,6 @@
 ﻿using Obstacles;
+using Player.Respawn;
+using Player.ShootingAbility;
 using UnityEngine;
 
 namespace Player
@@ -7,7 +9,7 @@ namespace Player
     {
         public void Die()
         {
-            Debug.Log("dead");
+            StaticRespawnEvents.InvokePlayerDied();
         }
     }
 }

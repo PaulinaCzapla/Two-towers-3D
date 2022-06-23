@@ -40,7 +40,18 @@ namespace Input
                 _inputActions.Gameplay.Enable();
             }
         }
-        
+
+        public void EnableInput(bool enable)
+        {
+            if (enable)
+            {
+                _inputActions.Gameplay.Enable();
+            }
+            else
+            {
+                _inputActions.Gameplay.Disable();
+            }
+        }
         public void OnMovement(InputAction.CallbackContext context)
         {
             if (context.performed)
