@@ -19,7 +19,6 @@ namespace Player.Movement
         [Header("Components")]
         [SerializeField] private CharacterController controller;
         [SerializeField] private GroundCheck groundCheck;
-        [SerializeField] private Transform playerTransform;
 
         private Vector3 _velocity = Vector3.zero;
         private const float Gravity = -9.81f;

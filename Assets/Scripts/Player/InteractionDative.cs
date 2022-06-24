@@ -33,7 +33,7 @@ namespace Player
         {
             if (_currentlyTargetedClickable != null)
             {
-                _currentlyTargetedClickable.Clicked();
+                _currentlyTargetedClickable.Click();
             }
         }
 

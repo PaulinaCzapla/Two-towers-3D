@@ -22,7 +22,7 @@ namespace Buttons
             StaticElevatorEvents.UnsubscribeFromElevatorButtonTargeted(OnElevatorButtonTargeted);
         }
 
-        public void Clicked()
+        public void Click()
         {
             StaticElevatorEvents.InvokeElevatorButtonClicked(floorNum);
             meshRenderer.material = clickedMaterial;

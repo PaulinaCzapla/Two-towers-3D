@@ -27,12 +27,12 @@ namespace Obstacles.Platforms
         private Cooldown _restoreCooldown;
         private Vector2 _initialPosition;
         private bool _wasTriggered;
-        private UnityEngine.Camera cam;
+        private UnityEngine.Camera _cam;
 
         private void Awake()
         {
             _initialPosition = transform.position;
-            cam = UnityEngine.Camera.main;
+            _cam = UnityEngine.Camera.main;
         }
 
         private void FixedUpdate()
@@ -40,9 +40,9 @@ namespace Obstacles.Platforms
             if (checker.CheckIfPlayerInside())
                 OnPlayerOnPlatform();
                 
-            if (_shakeCooldown != null && _shakeCooldown.CooldownEnded && cam)
+            if (_shakeCooldown != null && _shakeCooldown.CooldownEnded && _cam)
             {
-                cam.DOShakePosition(ShakeDuration, ShakeStrength);
+                _cam.DOShakePosition(ShakeDuration, ShakeStrength);
             }
 
             if (_fallCooldown != null && _fallCooldown.CooldownEnded)

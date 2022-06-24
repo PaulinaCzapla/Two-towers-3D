@@ -36,7 +36,7 @@ namespace Buttons
             StaticButtonEvents.UnsubscribeFromButtonTargeted(OnElevatorButtonTargeted);
         }
 
-        public void Clicked()
+        public void Click()
         {
             StaticButtonEvents.InvokeButtonClicked(_guid);
             meshRenderer.material = clickedMaterial;

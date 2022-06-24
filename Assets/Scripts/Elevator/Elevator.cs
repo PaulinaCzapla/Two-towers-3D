@@ -10,8 +10,6 @@ namespace Elevator
     public class Elevator  : MonoBehaviour
     {
         [Header("Player detection")]
-        [SerializeField] private Vector3 checkPosCorrection = Vector3.zero;
-        [SerializeField] private Vector3 halfExtends;
         [SerializeField] private PlayerInsideChecker checker;
 
         [Header("Floor positions")]

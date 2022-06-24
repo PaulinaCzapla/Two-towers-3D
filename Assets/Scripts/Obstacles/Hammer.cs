@@ -17,11 +17,9 @@ namespace Obstacles
             hammer.rotation = Quaternion.Euler(-angle);
             
             _sequence = DOTween.Sequence();
-            _sequence.Append(hammer.DORotate(angle,
-                    rotationTime).SetEase(Ease.InOutQuart))
+            _sequence.Append(hammer.DORotate(angle, rotationTime).SetEase(Ease.InOutQuart))
                 .AppendInterval(pause)
-                .Append(hammer.DORotate(- angle,
-                    rotationTime).SetEase(Ease.InOutQuart))
+                .Append(hammer.DORotate(- angle, rotationTime).SetEase(Ease.InOutQuart))
                 .AppendInterval(pause)
                 .SetLoops(-1);
         }

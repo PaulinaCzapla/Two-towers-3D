@@ -41,10 +41,6 @@ namespace Player.ShootingAbility
                     SpawnShotable();
                 }
             }
-            else
-            {
-                
-            }
         }
 
         private void SetShotDirection()

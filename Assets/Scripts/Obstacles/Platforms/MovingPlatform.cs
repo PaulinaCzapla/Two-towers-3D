@@ -14,9 +14,7 @@ namespace Obstacles.Platforms
         [SerializeField] private PlayerInsideChecker checker;
         
         private Sequence _sequence;
-        private int _index = 1;
         private GameObject _player;
-        private bool _increment = true;
         private bool _playerWasOn;
 
         private void Awake()

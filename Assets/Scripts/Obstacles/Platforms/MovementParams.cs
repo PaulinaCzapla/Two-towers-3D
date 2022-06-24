@@ -9,6 +9,7 @@ namespace Obstacles.Platforms
         public Vector3 TargetPosition => targetTransform.position;
         public float timeToAchieveTargetPos;
         public float interval;
+        
         [SerializeField] private Transform targetTransform;
     }
 }

@@ -10,6 +10,7 @@ namespace Camera
         [SerializeField] private CameraRotation cameraRotation = new CameraRotation();
         [SerializeField] private CameraZoom cameraZoom = new CameraZoom();
         [SerializeField] private InteractionDative interactionDative;
+        
         private void Awake()
         {
             Cursor.lockState = CursorLockMode.Locked;

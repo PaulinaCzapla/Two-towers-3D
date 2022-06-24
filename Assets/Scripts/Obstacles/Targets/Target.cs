@@ -32,6 +32,7 @@ namespace Obstacles.Targets
                     .SetEase(Ease.Flash)).SetLoops(-1);
 
             yield return new WaitForSeconds(0.5f);
+            
             sequence.Pause();
             gameObject.SetActive(false);
         }

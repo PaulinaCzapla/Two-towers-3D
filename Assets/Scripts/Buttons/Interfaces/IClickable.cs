@@ -2,6 +2,6 @@
 {
     public interface IClickable
     {
-        public void Clicked();
+        public void Click();
     }
 }
