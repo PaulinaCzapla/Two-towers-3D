@@ -15,5 +15,10 @@ namespace Obstacles.Traps
         {
             movement.UpdateMovement();
         }
+
+        public void Stop()
+        {
+            movement.Stop();
+        }
     }
 }

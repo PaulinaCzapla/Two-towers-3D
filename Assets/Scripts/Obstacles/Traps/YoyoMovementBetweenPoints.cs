@@ -17,6 +17,8 @@ namespace Obstacles.Traps
         private bool _increment = true;
         private Cooldown _cooldown;
         private bool _isMoving = false;
+        private bool _canMove = true;
+        private Sequence _sequence;
 
         public void StartMovement()
         {
@@ -32,21 +34,30 @@ namespace Obstacles.Traps
         
         public void UpdateMovement()
         {
-            if (movements.Count == 0)
-                return;
-            
-            if (Vector3.Distance(movements[_index].TargetPosition,
-                movingObjectTransform.position) < 0.2)
+            if (_canMove)
             {
-                MoveCompleted();
-                _isMoving = false;
-            }
+                if (movements.Count == 0)
+                    return;
 
-            if (!_isMoving && _cooldown.CooldownEnded)
-            {
-                _isMoving = true;
-                Move();
+                if (Vector3.Distance(movements[_index].TargetPosition,
+                    movingObjectTransform.position) < 0.2)
+                {
+                    MoveCompleted();
+                    _isMoving = false;
+                }
+
+                if (!_isMoving && _cooldown.CooldownEnded)
+                {
+                    _isMoving = true;
+                    Move();
+                }
             }
+        }
+        
+        public void Stop()
+        {
+            _sequence.Pause();
+            _canMove = false;
         }
 
        private  void  MoveCompleted()
@@ -67,8 +78,9 @@ namespace Obstacles.Traps
 
        private void Move()
         {
-            movingObjectTransform.DOMove(movements[_index].TargetPosition,
-                movements[_index].timeToAchieveTargetPos).SetEase(Ease.InOutSine);
+            _sequence = DOTween.Sequence();
+                _sequence.Append(movingObjectTransform.DOMove(movements[_index].TargetPosition,
+                movements[_index].timeToAchieveTargetPos).SetEase(Ease.InOutSine));
         }
     }
 }

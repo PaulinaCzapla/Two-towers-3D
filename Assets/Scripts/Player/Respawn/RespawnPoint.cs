@@ -9,7 +9,6 @@ namespace Player.Respawn
         {
             if (other.GetComponent<PlayerController>())
             {
-                Debug.Log(transform.position);
                 StaticRespawnEvents.InvokeRespawnPointChange(transform.position);
             }
         }

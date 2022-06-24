@@ -31,22 +31,29 @@ namespace Player.Movement
             inputReader.MoveCanceledEvent -= OnMoveCanceled;
         }
 
-        private void OnMoveCanceled() => _movementDirection = Vector3.zero;
+        private void OnMoveCanceled()
+        {
+            _movementDirection = Vector3.zero;
+            controller.Move(_movementDirection);
+        }
 
         private void OnMove(Vector2 dir) => _movementDirection = dir;
 
         public void HandleMoveCharacter()
         {
-            Vector3 movement = playerTransform.right * _movementDirection.x +
-                               playerTransform.forward * _movementDirection.y;
-            
-            if (!groundCheck.CheckIfOnGround() || inputReader.JumpPressed)
-                movement = movement * Time.deltaTime * playerParams.maxSpeedInAir;
-            else
-                movement = movement * Time.deltaTime *
-                           (inputReader.SprintPressed ? playerParams.runMaxSpeed : playerParams.walkMaxSpeed);
+            if (inputReader.MovePressed)
+            {
+                Vector3 movement = playerTransform.right * _movementDirection.x +
+                                   playerTransform.forward * _movementDirection.y;
 
-            controller.Move(movement);
+                if (!groundCheck.CheckIfOnGround() || inputReader.JumpPressed)
+                    movement = movement * Time.deltaTime * playerParams.maxSpeedInAir;
+                else
+                    movement = movement * Time.deltaTime *
+                               (inputReader.SprintPressed ? playerParams.runMaxSpeed : playerParams.walkMaxSpeed);
+
+                controller.Move(movement);
+            }
         }
     }
 }
