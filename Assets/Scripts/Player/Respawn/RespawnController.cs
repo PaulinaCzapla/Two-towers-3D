@@ -12,7 +12,7 @@ namespace Player.Respawn
         private Vector3 _respawnPos;
         private GameObject _player;
 
-        private void Awake()
+        private void Start()
         {
             _player = FindObjectOfType<PlayerController>().gameObject;
         }
@@ -31,6 +31,9 @@ namespace Player.Respawn
 
         private void OnPlayerDied()
         {
+            if(_player == null)
+                _player = FindObjectOfType<PlayerController>().gameObject;
+            
             if (_player)
             {
                 input.EnableInput(false);

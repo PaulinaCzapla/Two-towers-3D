@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerSO
   m_EditorClassIdentifier: 
   jumpMaxHeight: 2.8
-  maxDownwardSpeed: 100
+  maxDownwardSpeed: 12
   jumpMultiplier: 1
   downwardMultiplier: -1.3
   walkMaxSpeed: 6

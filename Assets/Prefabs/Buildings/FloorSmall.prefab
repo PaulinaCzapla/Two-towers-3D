@@ -502,7 +502,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4701230113780781440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.56, y: 0, z: -0.43}
+  m_LocalPosition: {x: 6.96, y: 3.24, z: -0.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -520,8 +520,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1690879, y: 5.4811926, z: 4.555667}
-  m_Center: {x: 0.2711351, y: 3.030024, z: 0.1557697}
+  m_Size: {x: 1.1690879, y: 4.8295918, z: 4.555667}
+  m_Center: {x: 0.2711351, y: -0.49925816, z: 0.15576982}
 --- !u!114 &5757350135134516376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6047,6 +6047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8584404243621681958}
   - component: {fileID: 2392719323051588229}
+  - component: {fileID: 3489260749590479668}
   m_Layer: 0
   m_Name: TriggerArea
   m_TagString: Untagged
@@ -6082,3 +6083,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.7656004, y: 7.442524, z: 1}
   m_Center: {x: -0.22252142, y: 4.1970234, z: 0}
+--- !u!114 &3489260749590479668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5287417972251555011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869e7e90dbad4583a6eab1056cb16a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
