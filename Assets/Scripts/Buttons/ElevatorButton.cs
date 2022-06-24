@@ -5,15 +5,10 @@ using UnityEngine;
 
 namespace Buttons
 {
-    public class ElevatorButton : MonoBehaviour, IClickable, ITargetable
+    public class ElevatorButton : Button , IClickable, ITargetable
     {
         [Range(0, 3)] [SerializeField] private int floorNum;
-
-        [SerializeField] private Material initialMaterial;
-        [SerializeField] private Material targetedMaterial;
-        [SerializeField] private Material clickedMaterial;
-        [SerializeField] private MeshRenderer meshRenderer;
-
+        
         private const float ButtonClickMove = 0.2f;
         private void OnEnable()
         {
@@ -61,13 +56,5 @@ namespace Buttons
                 meshRenderer.material = initialMaterial;
             }
         }
-
-        private IEnumerator ButtonClickedTimer()
-        {
-            yield return new WaitForSeconds(0.5f);
-            meshRenderer.material = initialMaterial;
-            transform.localScale += new Vector3(0, ButtonClickMove, 0);
-        }
-
     }
 }

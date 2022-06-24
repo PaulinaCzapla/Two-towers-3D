@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Buttons
 {
-    public class ReturnButton : MonoBehaviour, IClickable, ITargetable
+    public class ReturnButton : Button, IClickable, ITargetable
     {
         [SerializeField] private Material initialMaterial;
         [SerializeField] private Material targetedMaterial;
@@ -42,6 +42,7 @@ namespace Buttons
             meshRenderer.material = clickedMaterial;
             transform.localScale -= new Vector3(0, ButtonClickMove, 0);
             StartCoroutine(ButtonClickedTimer());
+            StartCoroutine(RespawnPlayer());
         }
 
         public void Targeted()
@@ -71,7 +72,7 @@ namespace Buttons
             }
         }
 
-        private IEnumerator ButtonClickedTimer()
+        private IEnumerator RespawnPlayer()
         {
             yield return new WaitForSeconds(0.5f);
 
