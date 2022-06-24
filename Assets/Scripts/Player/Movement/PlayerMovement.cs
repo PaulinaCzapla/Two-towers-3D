@@ -1,6 +1,7 @@
 using System;
 using Input;
 using Player.Movement.Checks;
+using Player.Respawn;
 using UnityEngine;
 
 namespace Player.Movement
@@ -23,12 +24,14 @@ namespace Player.Movement
             inputReader.SetInput();
             inputReader.MoveEvent += OnMove;
             inputReader.MoveCanceledEvent += OnMoveCanceled;
+            StaticRespawnEvents.SubscribeToPlayerDied(OnMoveCanceled);
         }
 
         public void UnsubscribeFromAllEvents()
         {
             inputReader.MoveEvent -= OnMove;
             inputReader.MoveCanceledEvent -= OnMoveCanceled;
+            StaticRespawnEvents.UnsubscribeFromPlayerDied(OnMoveCanceled);
         }
 
         private void OnMoveCanceled()

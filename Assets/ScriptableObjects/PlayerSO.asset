@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49311f0d1f7844c69143acf916fc0eea, type: 3}
   m_Name: PlayerSO
   m_EditorClassIdentifier: 
-  jumpMaxHeight: 2.8
+  jumpMaxHeight: 3
   maxDownwardSpeed: 35
   jumpMultiplier: 1
   downwardMultiplier: -1.3

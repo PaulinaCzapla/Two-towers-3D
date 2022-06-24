@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465663545}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.49, y: 0.387, z: 0.534}
+  m_LocalPosition: {x: 0.378, y: 0.647, z: 0.776}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 1979443368}
   - component: {fileID: 401762894}
   - component: {fileID: 653357918}
+  - component: {fileID: 549576846}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -88,9 +89,9 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.59
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.1
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_MinMoveDistance: 0.0001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8123723788607992049
 MonoBehaviour:
@@ -109,12 +110,12 @@ MonoBehaviour:
     inputReader: {fileID: 11400000, guid: a6f2ff6ef601c81499d92b89fc3d5beb, type: 2}
     controller: {fileID: 8123723788607992050}
     playerTransform: {fileID: 8123723788607992061}
+    groundCheck: {fileID: 8123723788607992048}
   jump:
     playerParams: {fileID: 11400000, guid: 91475dc6142e8164eb49a62e88100ba8, type: 2}
     inputReader: {fileID: 11400000, guid: a6f2ff6ef601c81499d92b89fc3d5beb, type: 2}
     controller: {fileID: 8123723788607992050}
     groundCheck: {fileID: 8123723788607992048}
-    playerTransform: {fileID: 8123723788607992061}
 --- !u!114 &8123723788607992048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +162,10 @@ MonoBehaviour:
   player: {fileID: 11400000, guid: 91475dc6142e8164eb49a62e88100ba8, type: 2}
   input: {fileID: 11400000, guid: a6f2ff6ef601c81499d92b89fc3d5beb, type: 2}
   firePoint: {fileID: 465663546}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2880
+  cam: {fileID: 8123723789056807671}
 --- !u!114 &653357918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +178,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43de5b1e84eb4f058298acf527a2696d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &549576846
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8123723788607992062}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.82
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8123723789056807665
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,14 +218,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8123723789056807665}
-  m_LocalRotation: {x: 0.5735764, y: 0, z: 0, w: 0.8191521}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.937, z: 0.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8123723788607992061}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &8123723789056807671
 Camera:
   m_ObjectHideFlags: 0
@@ -305,14 +324,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8123723789173395842}
-  m_LocalRotation: {x: -0.72751534, y: -0.063067324, z: -0.06748958, w: 0.6798449}
-  m_LocalPosition: {x: 0.54, y: 0.39, z: 0.14}
+  m_LocalRotation: {x: -0.7552589, y: -0.09919994, z: -0.11759526, w: 0.6371144}
+  m_LocalPosition: {x: 0.54, y: 0.552, z: 0.268}
   m_LocalScale: {x: 0.2, y: 1.09, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8123723788607992061}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -93.88, y: -10.6, z: 0}
+  m_LocalEulerAnglesHint: {x: -99.7, y: -17.7, z: 0}
 --- !u!33 &8123723789173395846
 MeshFilter:
   m_ObjectHideFlags: 0

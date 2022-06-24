@@ -46,7 +46,7 @@ namespace Player.Movement
                 CalculateJumpHeight();
             }
 
-            if (!groundCheck.CheckIfOnGround() && _velocity.y < 3)
+            if (!groundCheck.CheckIfOnGround() && _velocity.y < 4)
             {
                 _velocity.y = Mathf.Clamp(
                     _velocity.y - Mathf.Abs(Gravity * Time.deltaTime * (playerParams.downwardMultiplier - 1)),
