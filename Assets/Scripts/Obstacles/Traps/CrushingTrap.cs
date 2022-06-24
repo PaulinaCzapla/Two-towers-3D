@@ -4,7 +4,7 @@ namespace Obstacles.Traps
 {
     public class CrushingTrap : MonoBehaviour
     {
-        private const float Margin = 1.2f;
+        private const float Margin = 0.4f;
         
         [SerializeField] private Transform trapTransform;
         [SerializeField] private KillingObject killingObject;
