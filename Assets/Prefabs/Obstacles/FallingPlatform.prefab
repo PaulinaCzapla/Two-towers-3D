@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6953920577615151025}
   - component: {fileID: 6953920577615151027}
   - component: {fileID: 6953920577615151024}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlatformMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ba637377f69bf1849848451216e3d144, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6953920578509264723}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FallingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 6953920579436536935}
   - component: {fileID: 6953920579436536932}
   - component: {fileID: 6953920579436536934}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

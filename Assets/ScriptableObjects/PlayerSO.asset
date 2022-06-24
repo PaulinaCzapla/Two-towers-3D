@@ -20,8 +20,8 @@ MonoBehaviour:
   maxSpeedInAir: 4
   runMaxSpeed: 10
   shootCooldown: 0.5
-  range: 60
-  spreadMaxValue: 0.4
+  range: 63.24
+  spreadMaxValue: 0
   mouseSensitivity: 50
   maxAngle: 70
   minAngle: -90

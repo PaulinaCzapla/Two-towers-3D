@@ -59,21 +59,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab018e76f8a4b6ba99befc21073220e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformMovements:
-  - timeToAchieveTargetPos: 2
-    targetTransfom: {fileID: 1909309900740199190}
-  - timeToAchieveTargetPos: 2
-    targetTransfom: {fileID: 1909309901829765189}
-  - timeToAchieveTargetPos: 2
-    targetTransfom: {fileID: 1909309902249710353}
-  platformTransform: {fileID: 1690767613605118750}
-  platformMovementsInterval: 1
+  movement:
+    movements:
+    - timeToAchieveTargetPos: 1.5
+      interval: 0.5
+      targetTransform: {fileID: 1909309900740199190}
+    - timeToAchieveTargetPos: 1.5
+      interval: 0.5
+      targetTransform: {fileID: 1909309901829765189}
+    - timeToAchieveTargetPos: 1.5
+      interval: 0.5
+      targetTransform: {fileID: 1909309902249710353}
+    movingObjectTransform: {fileID: 1690767613605118750}
+    movementStartDelay: 0
   checker:
     playerLayer:
       serializedVersion: 2
       m_Bits: 128
-    checkPosCorrection: {x: 0, y: 0.36, z: 0}
-    halfExtends: {x: 2, y: 0.59, z: 2}
+    checkPosCorrection: {x: 0, y: 0.52, z: 0}
+    halfExtends: {x: 1, y: 0.59, z: 1}
     objTransform: {fileID: 1690767613605118750}
 --- !u!1 &1909309900503359611
 GameObject:
@@ -234,7 +238,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a34af499fcce7644e98b55505ad648ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

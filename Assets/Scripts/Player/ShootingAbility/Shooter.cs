@@ -14,10 +14,13 @@ namespace Player.ShootingAbility
         [SerializeField] private PlayerSO player;
         [SerializeField] private GameplayInputReader input;
         [SerializeField] private Transform firePoint;
+        [SerializeField] private LayerMask layerMask;
+        [SerializeField] private UnityEngine.Camera cam;
         
         private List<GameObject> _bulletsPool = new List<GameObject>();
         private Cooldown _cooldown;
         private Vector3 _bulletDir;
+        private Vector3 t;
 
         private void Awake()
         {
@@ -48,24 +51,24 @@ namespace Player.ShootingAbility
         {
             Vector3 targetPoint;
             RaycastHit hit;
-            var cameraCenter = UnityEngine.Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2f,
-                Screen.height / 2f, UnityEngine.Camera.main.nearClipPlane));
+
+            var cameraCenter = cam.transform.position;
             
-            if (Physics.Raycast(cameraCenter, UnityEngine.Camera.main.gameObject.transform.forward, out hit,
-                Mathf.Infinity))
+            if (Physics.Raycast(cameraCenter, cam.gameObject.transform.forward, out hit,
+                Mathf.Infinity, layerMask))
             {
                 targetPoint = hit.point;
             }
             else
             {
-                targetPoint = UnityEngine.Camera.main.gameObject.transform.forward*10 + cameraCenter;
+                targetPoint = cam.gameObject.transform.forward*20 + cameraCenter;
             }
             
             _bulletDir = targetPoint - firePoint.position;
             AddSpread();
-            
-            Debug.DrawRay(firePoint.position, targetPoint, Color.green);
-            Debug.DrawRay(cameraCenter, targetPoint, Color.green);
+
+            Debug.DrawRay(firePoint.position, _bulletDir, Color.red,20);
+            Debug.DrawRay(cameraCenter, _bulletDir, Color.green,20);
         }
 
         private void AddSpread()

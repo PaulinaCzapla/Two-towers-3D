@@ -28,6 +28,7 @@ namespace Player.ShootingAbility
         {
             StopAllCoroutines();
             _isAfterCollision = false;
+            _rb.velocity = Vector3.zero;
         }
 
         private void OnCollisionEnter(Collision other)

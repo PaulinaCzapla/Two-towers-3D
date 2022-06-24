@@ -13,7 +13,6 @@ namespace Obstacles.Traps
         [SerializeField] private List<MovementParams> movements;
         [SerializeField] private Transform movingObjectTransform;
         [SerializeField] private float movementStartDelay = 0;
-        private Sequence _sequence;
         private int _index = 1;
         private bool _increment = true;
         private Cooldown _cooldown;
