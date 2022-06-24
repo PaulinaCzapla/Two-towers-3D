@@ -9585,6 +9585,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 920075758609914662, guid: a67ab60a2cf925c469e05402f503dff9, type: 3}
+      propertyPath: fadeImage
+      value: 
+      objectReference: {fileID: 2658712154282896751}
     - target: {fileID: 920075758609914663, guid: a67ab60a2cf925c469e05402f503dff9, type: 3}
       propertyPath: m_Name
       value: RespawnController
@@ -12111,6 +12115,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3685873752816764982850614b2e349b, type: 3}
+--- !u!114 &2658712154282896751 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5994676516008837923, guid: 3685873752816764982850614b2e349b, type: 3}
+  m_PrefabInstance: {fileID: 2658712154282896750}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2666730498057554617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12229,7 +12244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2677555299633948003, guid: 08e629d0b956a094ca5118aa20242c95, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08e629d0b956a094ca5118aa20242c95, type: 3}
@@ -12617,7 +12632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7553515568095077138, guid: b958fb030c18d77478f082739c7890ee, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7553515568095077139, guid: b958fb030c18d77478f082739c7890ee, type: 3}
       propertyPath: m_RootOrder
@@ -12835,7 +12850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8123723788607992061, guid: ce7b00e9aa6fa13438e32f4be6eb5f96, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.93
+      value: 10.51
       objectReference: {fileID: 0}
     - target: {fileID: 8123723788607992061, guid: ce7b00e9aa6fa13438e32f4be6eb5f96, type: 3}
       propertyPath: m_LocalPosition.z

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using DG.Tweening;
 using Input;
 using Timers;
 using UnityEngine;
@@ -8,6 +9,9 @@ namespace Obstacles.Platforms
 {
     public class FallingPlatform : MonoBehaviour
     {
+        private const float ShakeStrength = 0.06f;
+        private const float ShakeDuration = 0.2f;
+        
         [Header("Platform params")]
         [SerializeField] private float timeBeforeFall = 1;
         [SerializeField] private float timeBeforeRespawn = 3;
@@ -23,10 +27,12 @@ namespace Obstacles.Platforms
         private Cooldown _restoreCooldown;
         private Vector2 _initialPosition;
         private bool _wasTriggered;
+        private UnityEngine.Camera cam;
 
         private void Awake()
         {
             _initialPosition = transform.position;
+            cam = UnityEngine.Camera.main;
         }
 
         private void FixedUpdate()
@@ -34,9 +40,9 @@ namespace Obstacles.Platforms
             if (checker.CheckIfPlayerInside())
                 OnPlayerOnPlatform();
                 
-            if (_shakeCooldown != null && _shakeCooldown.CooldownEnded)
+            if (_shakeCooldown != null && _shakeCooldown.CooldownEnded && cam)
             {
-                //todo: camera shake
+                cam.DOShakePosition(ShakeDuration, ShakeStrength);
             }
 
             if (_fallCooldown != null && _fallCooldown.CooldownEnded)
@@ -61,7 +67,6 @@ namespace Obstacles.Platforms
         {
             if (!_wasTriggered)
             {
-                Debug.Log("fall");
                 _fallCooldown = new Cooldown(timeBeforeFall);
                 _fallCooldown.StartCooldown();
                 _shakeCooldown = new Cooldown(timeBeforeFall / 2);
@@ -74,7 +79,7 @@ namespace Obstacles.Platforms
         {
             rb.isKinematic = false;
             platformCollider.isTrigger = true;
-            rb.velocity = new Vector3(0, -5, 0);
+            rb.velocity = new Vector3(0, -6, 0);
             yield return new WaitForSeconds(0.2f);
 
             _shakeCooldown = null;
