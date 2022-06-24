@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 2677555299904572478}
   - component: {fileID: 2677555299904572448}
   - component: {fileID: 2677555299904572449}
+  - component: {fileID: 1755856306}
   m_Layer: 0
   m_Name: KillingObject
   m_TagString: Untagged
@@ -146,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2677555299904572479}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 109.5, y: -52.8, z: -57}
+  m_LocalPosition: {x: 109.5, y: -52.8, z: -40.6}
   m_LocalScale: {x: 199.5, y: 3.8, z: 131.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -176,8 +177,21 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.91226083, y: 0.6811282, z: 1}
+  m_Center: {x: 0.043869667, y: -0.06550228, z: 0}
+--- !u!65 &1755856306
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2677555299904572479}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.32950896, y: 1.2998185, z: 1}
+  m_Center: {x: -0.52675307, y: -2.3294754, z: 0}
 --- !u!1001 &2677555298374843912
 PrefabInstance:
   m_ObjectHideFlags: 0
